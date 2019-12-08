@@ -1,0 +1,53 @@
+---
+title: Invoice
+author: Matthew Barstead, Ph.D.
+company: Dead Reckoning Analytics and Consulting
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
+output:
+  pdf_document:
+    template: invoice.tex
+  html_document:
+    df_print: paged
+logo: logo.png
+address: > 
+  P.O. Box 194
+  College Park, MD 20740
+email: info@deadreckoning.consulting
+phone: (443) 480-0958
+url: www.deadreckoning.consulting
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval=TRUE, tinytex.verbose = TRUE)
+print_address <- function(name, organization, department=NULL, street, city, state, zip){
+  if(is.null(department))
+    address = paste0('$',
+                     name, ' \\', 
+                     organization, ' \\',
+                     street, ' \\', 
+                     city, ', ', state, " ", zip, 
+                     '$')
+  else
+    address = paste0('$',
+                     name, ' \\', 
+                     organization, ' \\',
+                     department, ' \\', 
+                     street, ' \\', 
+                     city, ', ', state, " ", zip, 
+                     '$')
+  
+  address
+}
+name <- 'Ken Rubin' 
+org <- 'University of Maryland' 
+dept <- 'Dept. of Human Development & Quantitative Methodology' 
+street <- '3304 Benjamin Building'
+city <- 'College Park'
+state <- 'MD'
+zip <- '20742'
+```
+
+## Invoice to: 
+```{r print_address, results='asis'}
+print_address(name, org, dept, street, city, state, zip)
+```
