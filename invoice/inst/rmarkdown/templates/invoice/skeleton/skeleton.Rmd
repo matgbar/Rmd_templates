@@ -3,17 +3,16 @@ title: Invoice
 author: Matthew Barstead, Ph.D.
 company: Dead Reckoning Analytics and Consulting
 date: "`r format(Sys.Date(), '%Y-%m-%d')`"
+geometry: margin=2cm
 output:
   pdf_document:
     template: invoice.tex
-  html_document:
-    df_print: paged
 logo: logo.png
 address: > 
   P.O. Box 194
   College Park, MD 20740
 email: info@deadreckoning.consulting
-phone: (443) 480-0958
+phone: "443-480-0958"
 url: www.deadreckoning.consulting
 ---
 
@@ -36,11 +35,11 @@ print_address <- function(name, organization, department=NULL, street, city, sta
                      city, ', ', state, " ", zip, 
                      '$')
   
-  address
+  print(address)
 }
 name <- 'Ken Rubin' 
 org <- 'University of Maryland' 
-dept <- 'Dept. of Human Development & Quantitative Methodology' 
+dept <- 'Dept. of Human Development and Quantitative Methodology' 
 street <- '3304 Benjamin Building'
 city <- 'College Park'
 state <- 'MD'
@@ -48,6 +47,6 @@ zip <- '20742'
 ```
 
 ## Invoice to: 
-```{r print_address, results='asis'}
+```{r print_address}
 print_address(name, org, dept, street, city, state, zip)
 ```

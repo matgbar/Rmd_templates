@@ -1,1 +1,4 @@
 name: Invoice
+description: >
+  Creates template for an invoice of services
+create_dir: true

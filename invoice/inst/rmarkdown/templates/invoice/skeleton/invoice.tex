@@ -407,13 +407,15 @@ $endif$
 
 \begin{document}
 \sffamily
+
 %----------------------------------------------------------------------------------------
 %	HEADING SECTION
 %----------------------------------------------------------------------------------------
 
-\hfil{\includegraphics[height=30mm,keepaspectratio]($logo$)}\hfil % Company providing the invoice
+\hfil \includegraphics[height=20mm,keepaspectratio]{$logo$} \hfil % Company providing the invoice
 \bigskip\break % Whitespace
-{\textbf \huge $title$} \hfill Date: $date$
+{\huge{$title$}} \hfill Date: $date$
+\break
 \hrule % Horizontal line
 
 $author$ \hfill $phone$ \\ % Your address and contact information
@@ -421,5 +423,11 @@ $address$ \hfill $email$ \\
 $url$ \\ \\
 
 %----------------------------------------------------------------------------------------
+$if(has-frontmatter)$
+\mainmatter
+$endif$
+\sffamily
+
+$body$
 
 \end{document}
